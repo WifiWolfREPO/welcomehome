@@ -18,7 +18,6 @@
     
     #bg-center {
       background-color: black;
-      position: fixed;
       opacity: 0.5;
       filters: blur(30px);
       height: 50px;
@@ -26,6 +25,10 @@
       width: 50px;
       text-align: center;
       color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
     }
     
     div#deco {filter: blur(10px);animation-name:defaultmove;animation-duration:3s;animation-iteration-count: infinite;}
@@ -33,8 +36,8 @@
   </style>
 </head>
 <body>
-  <div id=deco>a</div>
-  <div id="bg-center"></div>
+  <div id=deco></div>
+  <div id="bg-center">a</div>
   <a class="twitter-timeline" href="https://twitter.com/WifiWaWa?ref_src=twsrc%5Etfw">Tweets by WifiWaWa</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </body>
 </html>
