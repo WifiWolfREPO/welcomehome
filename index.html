@@ -15,12 +15,21 @@
       50% {border-color: rgb(9, 255, 0); border-style: dashed;}
       100% {border-color: rgb(255, 0, 0); border-style: dashed;}
     }
+    
+    #bg-center {
+      background-color: black;
+      position: fixed;
+      opacity: 0.5;
+      filters: blur(30px);
+    }
+    
     div#deco {filter: blur(10px);animation-name:defaultmove;animation-duration:3s;animation-iteration-count: infinite;}
     body {position:absolute;animation-fill-mode: both; animation-iteration-count: infinite;animation-duration: 25s;animation-name: scroll; background-image: url("bg-main.jpg"); background-size: 90px;}
   </style>
 </head>
 <body>
   <div id=deco></div>
+  <div id="bg-center"></div>
   <a class="twitter-timeline" href="https://twitter.com/WifiWaWa?ref_src=twsrc%5Etfw">Tweets by WifiWaWa</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </body>
 </html>
