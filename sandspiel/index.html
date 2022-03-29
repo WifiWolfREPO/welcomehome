@@ -1,8 +1,31 @@
 <!DOCTYPE html>
 <html>
 
-<head><title>Sandspiel ALT VERSION</title></head>
+<head><title>Sandspiel ALT VERSION</title>
+<style>
+iframe {border-style: dashed; border-color:black;}
+@keyframes blur {0% {filter: blur(0px);} 100% {filter: blur(15px);}}
+@keyframes unblur {0% {filter: blur(15px);} 100% {filter: blur(0px);}}
+</style>
+</head>
 
-<body><center><iframe style="border-style: dashed; border-color:black; border-size: 20px;" src="https://sandspiel.club/" width="800" height="600"></iframe><div style="font: caption;">Original link: https://sandspiel.club/ by Max Bittker</div></center></body>
+<body><center><iframe src="https://sandspiel.club/" width="1080" height="620"></iframe><div style="font: caption;">Original link: https://sandspiel.club/ by Max Bittker</div></center>
+
+<script>
+
+	document.querySelector("iframe").addEventListener("mouseover", unblur)
+	document.querySelector("iframe").addEventListener("mouseout", blur)
+
+	function blur() {
+	document.querySelector("iframe").style.animation = 'none'
+	document.querySelector("iframe").style.animation = "1s blur forwards"
+}
+
+	function unblur() {
+	document.querySelector("iframe").style.animation = 'none'
+	document.querySelector("iframe").style.animation = "1s unblur forwards"
+}
+</script>
+</body>
 
 </html>
