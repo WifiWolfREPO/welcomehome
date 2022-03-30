@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head><title>Tabber - Multiple web pages</title>
+
+	<style>
+	.stylish {font: caption; font-size: 25px; text-align: center;}
+	.tile {border-style: double; border-color:black;}
+	</style>
+	
+	</head>
+
+	<body>
+		<h1 class="stylish">Note that Tabber doesn't support some websites like YouTube or SoundCloud.</h1><br>
+		<center><button class="stylish" onclick="addtab()">New Tile</button><br><a class="stylish">Tile Size</a><input max="700" type="range"></center><br>
+		<center id="centered"></center>
+		<script>
+			function addtab() {
+				var tabURL = window.prompt("Paste here the website URL (YouTube or SoundCloud not supported)")
+				var newTab = document.createElement("iframe")
+				var tabSize = document.querySelector("input").value.toString()
+				newTab.setAttribute("src", tabURL)
+				newTab.setAttribute("width", tabSize)
+				newTab.setAttribute("height", tabSize)
+				newTab.setAttribute("id", "tile")
+				document.querySelector("#centered").appendChild(newTab)
+			}
+		</script>
+		
+	</body>
+</html>
