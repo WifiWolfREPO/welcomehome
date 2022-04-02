@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<html>
+<head><style>
+
+#pfp {
+	border-radius: 50px;
+	display: inline-block;
+	width:12%;
+	height:15%;
+	border-color:black;
+	border-style:solid;
+}
+#mainDiv {
+	background-color:gray;
+	border-radius:50px;
+
+}
+
+.stylish {
+	left: 15%;
+	text-align:center;
+	color:white;
+	font: caption;
+	display: inline-block;
+	font-size: 35pt;
+	position:absolute;
+	border-style:dashed;
+	border-color:black;
+	border-radius:10px;
+
+}
+
+.score {
+	left: 200px;
+	top: 80px;
+	text-align:center;
+	color:white;
+	font: caption;
+	display: inline-block;
+	font-size: 15pt;
+	position:absolute;
+	border-radius:10px;
+
+}
+
+</style></head>
+<body>
+
+<div id="mainDiv" onclick="openTab()">
+<img id="pfp" src="profile.png" onclick="changeprofile()"></img>
+<div class="stylish" onclick="changeUserName()" id="username"></div>
+<div class="score"></div>
+
+</div>
+
+<script>
+	
+	if (localStorage.getItem("OpenUsername") == "") {
+	document.querySelector("#username").innerHTML = "No Name User"
+	} else if (localStorage.getItem("OpenUsername") == "null") {
+	document.querySelector("#username").innerHTML = "No Name User"
+	} else
+	{document.querySelector("#username").innerHTML = localStorage.getItem("OpenUsername")
+	}
+
+	if (localStorage.getItem("userScore") == null || 0) {
+	document.querySelector(".score").innerHTML = "No score in any game. :("
+	localStorage.setItem("userScore", 0)
+	} else {
+	document.querySelector(".score").innerHTML = "User score in games: "+localStorage.getItem("userScore")
+	}
+	
+	document.getElementById("pfp").setAttribute("src", localStorage.getItem("profilePic"))
+
+	function openTab() {
+		window.open("OpenID.html")
+	}
+
+	function changeUserName() {
+		localStorage.setItem("OpenUsername", window.prompt("New Username:"))
+		window.location.reload(false)
+	}
+
+	function changeprofile() {
+		localStorage.setItem("profilePic", window.prompt("Image URL (To get, browse google, right click your image and click \"Copy Image Address\" then paste it here."))
+		window.location.reload(false)
+	}
+
+</script>
+
+</body>
+</html>

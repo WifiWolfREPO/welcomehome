@@ -3,22 +3,33 @@
 
 <head><title>Sandspiel ALT VERSION</title>
 <style>
-#game {border-style: dashed; border-color:black; border-radius: 15px;}
+#game {border-style: dashed; border-color:black; border-radius: 15px; width:95%;}
 @keyframes blur {0% {filter: blur(0px);} 100% {filter: blur(15px);}}
 @keyframes unblur {0% {filter: blur(15px);} 100% {filter: blur(0px);}}
 
-<link rel="icon" href="favicon.ico">
+
 </style>
 </head>
 
-<body><center><iframe id="game" src="https://sandspiel.club/" width="1080" height="590"></iframe><div style="font: caption;">Original link: https://sandspiel.club/ by Max Bittker</div></center>
+<body><center><iframe id="game" src="https://sandspiel.club/" width="1080" height="590"></iframe><div style="font: caption;">Original link: https://sandspiel.club/ by Max Bittker | Scroll down for user details!</div></center>
 
-	<button id="youtube" onclick="youtube()">Play a YouTube video</button>
+	<center><button id="youtube" onclick="youtube()">Play a YouTube video</button><br><br>
+
+	<iframe height="120" width="800" src="../OpenID.html" style="border-style: none;"></iframe></center>
+	
+	
+
 
 <script>
 
-	document.querySelector("#game").addEventListener("mouseover", unblur)
-	document.querySelector("#game").addEventListener("mouseout", blur)
+	document.getElementById("game").addEventListener("mouseover", unblur)
+	document.getElementById("game").addEventListener("mouseout", blur)
+
+	var score = localStorage.getItem("userScore")
+	score++
+
+	localStorage.setItem("userScore", score)
+	console.log("User score: "+localStorage.getItem("userScore"))
 
 	function youtube() {
 		var youtubeURLfull = window.prompt("Type in the youtube video URL (Copy and paste here!)")
@@ -28,6 +39,15 @@
 		youtubeVideo.setAttribute("width", 1000)
 		youtubeVideo.setAttribute("height", 1000)
 		document.body.appendChild(youtubeVideo);
+	}
+
+	function soundcloud() {
+		var soundcloudURL = window.prompt("Type in the soundcloud music URL (Copy and paste from the url bar)")
+		var soundcloudMusic = document.createElement("iframe")
+		soundcloudMusic.setAttribute("src", soundcloudURL)
+		soundcloudMusic.setAttribute("width", 1000)
+		soundcloudMusic.setAttribute("height", 1000)
+		document.body.appendChild(soundcloudMusic);
 	}
 
 	function blur() {
