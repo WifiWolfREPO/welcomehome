@@ -58,28 +58,32 @@
 	
 
 	if (localStorage.getItem("OpenUsername") == null) {
-	document.querySelector("#username").innerHTML = "No Name User"
+	localStorage.setItem("OpenUsername", "No name user") 
 	} else
 	{document.querySelector("#username").innerHTML = localStorage.getItem("OpenUsername")
 	}
-	
-	if (localStorage.getItem("profilePic").length < 1) {
-	document.querySelector("#pfp").setAttribute("src", "profile.png")
-	} else if (localStorage.getItem("profilePic") == "null") {
+
+	if (localStorage.getItem("OpenUsername") == null) {
+	localStorage.setItem("OpenUsername", "No name user") 
+	} else
+	{document.querySelector("#username").innerHTML = localStorage.getItem("OpenUsername")
+	}
+
+	if (localStorage.getItem("profilePic") == null) {
 	document.querySelector("#pfp").setAttribute("src", "profile.png")
 	} else {
 	document.querySelector("#pfp").setAttribute("src", localStorage.getItem("profilePic"))
 	}
 
 
-	if (localStorage.getItem("userScore") == null || 0) {
+	if (localStorage.getItem("userScore") === null || 0 || "null") {
 	document.querySelector(".score").innerHTML = "No score in any game. :("
 	localStorage.setItem("userScore", 0)
 	} else {
 	document.querySelector(".score").innerHTML = "User score in games: "+localStorage.getItem("userScore")
 	}
 	
-	document.getElementById("pfp").setAttribute("src", localStorage.getItem("profilePic"))
+
 
 	function openTab() {
 		window.open("identify.html")
@@ -87,11 +91,21 @@
 
 	function changeUserName() {
 		localStorage.setItem("OpenUsername", window.prompt("New Username:"))
+		if (localStorage.getItem("OpenUsername") == "null") {
+		localStorage.setItem("OpenUsername", "No name user") 
+		} else
+		{document.querySelector("#username").innerHTML = localStorage.getItem("OpenUsername")
+		}
 		window.location.reload(false)
 	}
 
 	function changeprofile() {
 		localStorage.setItem("profilePic", window.prompt("Image URL (To get, browse google, right click your image and click \"Copy Image Address\" then paste it here."))
+		if (localStorage.getItem("profilePic") == "null") {
+		localStorage.setItem("profilePic", "profile.png") 
+		} else {
+		localStorage.setItem("profilePic", localStorage.getItem("profilePic")) 
+		}
 		window.location.reload(false)
 	}
 
