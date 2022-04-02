@@ -9,7 +9,7 @@
 	width:12%;
 	height:15%;
 	border-color:black;
-	border-style:solid;
+	border-style:dashed;
 }
 #mainDiv {
 	background-color:gray;
@@ -56,13 +56,21 @@
 
 <script>
 	
-	if (localStorage.getItem("OpenUsername") == "") {
-	document.querySelector("#username").innerHTML = "No Name User"
-	} else if (localStorage.getItem("OpenUsername") == "null") {
+
+	if (localStorage.getItem("OpenUsername") == null) {
 	document.querySelector("#username").innerHTML = "No Name User"
 	} else
 	{document.querySelector("#username").innerHTML = localStorage.getItem("OpenUsername")
 	}
+	
+	if (localStorage.getItem("profilePic").length < 1) {
+	document.querySelector("#pfp").setAttribute("src", "profile.png")
+	} else if (localStorage.getItem("profilePic") == "null") {
+	document.querySelector("#pfp").setAttribute("src", "profile.png")
+	} else {
+	document.querySelector("#pfp").setAttribute("src", localStorage.getItem("profilePic"))
+	}
+
 
 	if (localStorage.getItem("userScore") == null || 0) {
 	document.querySelector(".score").innerHTML = "No score in any game. :("
